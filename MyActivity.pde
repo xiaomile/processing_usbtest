@@ -2,6 +2,7 @@ import android.hardware.usb.UsbManager;
 import android.app.Activity;
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 import android.os.Bundle;
+import processing.core.PApplet;
 
 
 public class MyActivity {
