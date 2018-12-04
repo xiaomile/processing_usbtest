@@ -21,6 +21,7 @@ super.onCreate(savedInstanceState);
 
 try{
 myactivity = new MyActivity(this);
+myactivity.openUsbDevice();
   if(!myactivity.usbdriver.UsbFeatureSupported()){
     new AlertDialog.Builder(this.getActivity())
     .setTitle("notice")
