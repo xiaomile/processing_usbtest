@@ -147,8 +147,8 @@ private String toHexString(byte[] arg,int length){
   if(arg != null){
     for(int i=0;i<length;i++){
       result = result+(
-      Integer.toHexString(arg[i]<0?arg[i]+256:arg[i]).length()==1?"0"+Integer.toHexString(arg[i]<0?arg[i]+256:arg[i]):Integer.toHexString(arg[i]<0?arg[i]+256:arg[i])
-      )+" ";
+      (char)(arg[i]<0?arg[i]+256:arg[i])==0?""+(char)(arg[i]<0?arg[i]+256:arg[i]):(char)(arg[i]<0?arg[i]+256:arg[i])
+      );
     }
     return result;
   }
