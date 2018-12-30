@@ -81,6 +81,7 @@ void onActivityResult(int requestCode, int resultCode, Intent data) {
 byte[] val_read  =new byte[1]; 
 byte[] val_write =new byte[1];  
 String read_recv = "";
+
 int y=640;
 byte s1;
 int new_time;
@@ -112,6 +113,10 @@ void draw() {
     }
   }
   text(read_recv+"!",320,1150);
+  String[] t2 = read_recv.split(",");
+  String t1 = "";
+  for(int i = 0;i<t2.length;i++)t1+=t2[i]+" ";
+  text(t1+"?",320,1210);
   new_time= millis();
   if((new_time-old_time)>100){
   if(s1!=old_s){
@@ -143,11 +148,11 @@ void draw() {
 }
 
 private String toHexString(byte[] arg,int length){
-  String result = new String();
+  String result = "";
   if(arg != null){
     for(int i=0;i<length;i++){
       result = result+(
-      (char)(arg[i]<0?arg[i]+256:arg[i])==0?""+(char)(arg[i]<0?arg[i]+256:arg[i]):(char)(arg[i]<0?arg[i]+256:arg[i])
+      String.valueOf(arg[i]<0?arg[i]+256:arg[i]).length()==0?","+(arg[i]<0?arg[i]+256:arg[i]):(arg[i]<0?arg[i]+256:arg[i])
       );
     }
     return result;
