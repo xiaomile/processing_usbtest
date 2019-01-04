@@ -115,7 +115,7 @@ void draw() {
   text(read_recv+"!",320,1150);
   String[] t2 = read_recv.split(",");
   String t1 = "";
-  for(int i = 0;i<t2.length;i++)t1+=t2[i]+" ";
+  for(int i = 0;i<t2.length;i++)t1+=(char)(Integer.parseInt(t2[i]))+" ";
   text(t1+"?",320,1210);
   new_time= millis();
   if((new_time-old_time)>100){
@@ -152,8 +152,8 @@ private String toHexString(byte[] arg,int length){
   if(arg != null){
     for(int i=0;i<length;i++){
       result = result+(
-      String.valueOf(arg[i]<0?arg[i]+256:arg[i]).length()==0?","+(arg[i]<0?arg[i]+256:arg[i]):(arg[i]<0?arg[i]+256:arg[i])
-      );
+      Integer.toHexString(arg[i]<0?arg[i]+256:arg[i]).length()==1?"0"+Integer.toHexString(arg[i]<0?arg[i]+256:arg[i]):Integer.toHexString(arg[i]<0?arg[i]+256:arg[i])
+      )+",";
     }
     return result;
   }
