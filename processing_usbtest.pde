@@ -115,7 +115,7 @@ void draw() {
   text(read_recv+"!",320,1150);
   String[] t2 = read_recv.split(",");
   String t1 = "";
-  for(int i = 0;i<t2.length;i++)t1+=(char)(Integer.parseInt(t2[i]))+" ";
+  for(int i = 0;i<t2.length;i++)t1+=(char)(Integer.parseInt(t2[i],16))+" ";
   text(t1+"?",320,1210);
   new_time= millis();
   if((new_time-old_time)>100){
